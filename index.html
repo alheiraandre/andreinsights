@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>André Insights | Holding</title>
-
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
-
-
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Tipografia elegante e ajustes estruturais */
         @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap');
         body { font-family: 'Jost', sans-serif; background-color: #f8f8f8; overflow-x: hidden; }
+        
+        /* Esconde elementos inicialmente para a animação do GSAP */
         .reveal-text, .reveal-card { opacity: 0; transform: translateY(40px); }
+        
+        /* Efeito de sobreposição suave no vídeo/imagem principal */
         .hero-overlay { background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.6) 100%); }
-        #floating-menu { transform-origin: top right; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+        /* Menu Flutuante (Card Suspenso) */
+        #floating-menu {
+            transform-origin: top right;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Ajuste do Scrollbar do Chatbot para ficar elegante */
         #chat-messages::-webkit-scrollbar { width: 4px; }
         #chat-messages::-webkit-scrollbar-thumb { background-color: #d1d5db; border-radius: 4px; }
     </style>
@@ -24,8 +31,10 @@
 
     <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center transition-all duration-300" id="navbar">
         <img src="./img/AI.webp" alt="André Insights Logo" class="h-16 object-contain drop-shadow-[0_2px_4px_rgba(255,255,255,0.5)] transition-all duration-300" id="nav-logo">
+        
         <div class="relative">
             <button class="text-sm tracking-widest uppercase text-white font-medium bg-black/30 px-6 py-3 rounded-full backdrop-blur-sm cursor-pointer hover:bg-black/50 transition" id="menu-toggle">Menu</button>
+            
             <div id="floating-menu" class="absolute top-14 right-0 w-64 bg-white/95 backdrop-blur-xl border border-gray-100 shadow-2xl rounded-2xl p-6 opacity-0 invisible scale-95 flex flex-col gap-4 z-50">
                 <a href="#" class="menu-link text-gray-800 text-lg tracking-wide hover:text-gray-400 transition-colors border-b border-gray-100 pb-2">Home</a>
                 <a href="#impacto" class="menu-link text-gray-800 text-lg tracking-wide hover:text-gray-400 transition-colors border-b border-gray-100 pb-2">O Impacto</a>
@@ -39,6 +48,7 @@
     <header class="relative w-full h-screen overflow-hidden flex items-center justify-center">
         <img src="./img/hero.webp" alt="Visão Arquitetônica" class="absolute w-full h-full object-cover top-0 left-0" id="hero-img">
         <div class="absolute inset-0 hero-overlay"></div>
+        
         <div class="relative z-10 text-center text-white px-4">
             <h1 class="text-5xl md:text-7xl font-light tracking-wide reveal-text leading-tight drop-shadow-lg">
                 Percepções que transformam.<br>
@@ -60,20 +70,28 @@
     </section>
 
     <section id="marcas" class="py-24 px-6 md:px-24 bg-[#f8f8f8]">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-7xl mx-auto">
             <div class="mb-16 text-center">
                 <h2 class="text-3xl md:text-4xl font-light text-gray-400 reveal-card">Nossas Marcas</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <a href="#" class="group block reveal-card relative overflow-hidden bg-[#f4f4f4] rounded-xl flex flex-col items-center justify-center p-8 h-[360px] transition-all duration-700 hover:-translate-y-2 border border-gray-200 shadow-sm hover:shadow-xl">
                     <img src="./img/afoliveira.webp" alt="Logo AF Oliveira" class="w-48 h-48 object-contain mb-4 transition-transform duration-700 group-hover:scale-110">
                     <h3 class="text-xl tracking-widest uppercase text-gray-800">AF Oliveira</h3>
                     <p class="text-gray-500 text-[10px] mt-3 text-center max-w-[220px] leading-relaxed uppercase tracking-wider">Nosso Gol é Transmutar o "Saber" em "Poder Operacional".</p>
                 </a>
-                <a href="#" class="group block reveal-card relative overflow-hidden bg-[#f4f4f4] rounded-xl flex flex-col items-center justify-center p-8 h-[360px] transition-all duration-700 hover:-translate-y-2 border border-gray-200 shadow-sm hover:shadow-xl">
+
+                <a href="https://oliverwearco.andreinsights.com/" target="_blank" rel="noopener noreferrer" class="group block reveal-card relative overflow-hidden bg-[#f4f4f4] rounded-xl flex flex-col items-center justify-center p-8 h-[360px] transition-all duration-700 hover:-translate-y-2 border border-gray-200 shadow-sm hover:shadow-xl">
                     <img src="./img/oliverwearco.webp" alt="Logo OLIVER WEAR Co" class="w-48 h-48 object-contain mb-4 transition-transform duration-700 group-hover:scale-110">
                     <h3 class="text-xl tracking-widest uppercase text-gray-800">OLIVER WEAR Co.</h3>
                     <p class="text-gray-500 text-[10px] mt-3 text-center max-w-[200px] leading-relaxed uppercase tracking-wider">Entrega expressa em todo o Brasil pela Reserva Ink.</p>
+                </a>
+
+                <a href="https://cernealto.andreinsights.com/" target="_blank" rel="noopener noreferrer" class="group block reveal-card relative overflow-hidden bg-[#f4f4f4] rounded-xl flex flex-col items-center justify-center p-8 h-[360px] transition-all duration-700 hover:-translate-y-2 border border-gray-200 shadow-sm hover:shadow-xl">
+                    <img src="./img/cernelogo.webp" alt="Logo Cerne Alto" class="w-48 h-48 object-contain mb-4 transition-transform duration-700 group-hover:scale-110">
+                    <h3 class="text-xl tracking-widest uppercase text-gray-800">Cerne Alto</h3>
+                    <p class="text-gray-500 text-[10px] mt-3 text-center max-w-[220px] leading-relaxed uppercase tracking-wider">Sua Visão, Nossa Estrutura. Gestão e Liderança de Cerne Alto.</p>
                 </a>
             </div>
         </div>
@@ -84,10 +102,12 @@
             <div class="mb-16 text-center md:text-left">
                 <h2 class="text-3xl md:text-4xl font-light text-gray-900 reveal-text">Sobre André Oliveira</h2>
             </div>
+
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-5 relative overflow-hidden rounded-2xl shadow-lg h-[500px] reveal-card group">
                     <img src="./img/eu.webp" alt="André Oliveira" class="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 cursor-pointer">
                 </div>
+
                 <div class="md:col-span-7 flex flex-col gap-6 reveal-text">
                     <p class="text-xl text-gray-800 font-light leading-relaxed italic border-l-4 border-gray-300 pl-6">
                         "O mundo dos negócios em 2026 exige mais do que apenas percepções, exige precisão operacional. Após três décadas transformando organizações, evoluímos."
@@ -111,39 +131,49 @@
         <p class="text-gray-400 text-sm tracking-widest">© 2026 André Insights. Todos os direitos reservados.</p>
     </footer>
 
-    <a href="https://wa.me/5521993333676" target="_blank" rel="noopener noreferrer" class="group fixed bottom-6 left-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:bg-[#1EAB52] hover:-translate-y-2 transition-all duration-300 flex items-center justify-center">
+    <a href="https://wa.me/5521993333676" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" class="group fixed bottom-6 left-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:bg-[#1EAB52] hover:-translate-y-2 transition-all duration-300 flex items-center justify-center">
         <svg class="w-8 h-8 transform transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.487-1.761-1.66-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
     </a>
 
-    <button id="chatbot-toggle" class="fixed bottom-6 right-6 z-50 bg-[#111112] text-white p-4 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-300 flex items-center justify-center border-2 border-white group">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:rotate-12 transition-transform"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    <button id="chatbot-toggle" aria-label="Abrir assistente virtual" aria-expanded="false" aria-controls="chatbot-window" class="fixed bottom-6 right-6 z-50 bg-[#111112] text-white p-4 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-300 flex items-center justify-center border-2 border-white group">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:rotate-12 transition-transform">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
     </button>
 
-    <div id="chatbot-window" class="fixed bottom-24 right-6 z-50 w-80 md:w-96 bg-white border border-gray-200 rounded-2xl shadow-2xl flex-col hidden overflow-hidden transition-all duration-300 transform translate-y-4 opacity-0">
+    <div id="chatbot-window" role="dialog" aria-modal="true" aria-label="Assistente virtual" class="fixed bottom-24 right-6 z-50 w-80 md:w-96 bg-white border border-gray-200 rounded-2xl shadow-2xl flex-col hidden overflow-hidden transition-all duration-300 transform translate-y-4 opacity-0">
         <div class="bg-[#111112] text-white p-4 flex justify-between items-center">
-            <div><p class="font-bold text-sm uppercase tracking-widest text-white">Assistente AI</p><p class="text-xs text-white/70 font-medium">André Insights Holding</p></div>
-            <button id="chatbot-close" class="text-gray-400 hover:text-white transition-colors cursor-pointer text-xl">✕</button>
+            <div>
+                <p class="font-bold text-sm uppercase tracking-widest text-white">Assistente AI</p>
+                <p class="text-xs text-white/70 font-medium">André Insights Holding</p>
+            </div>
+            <button id="chatbot-close" aria-label="Fechar assistente virtual" class="text-gray-400 hover:text-white transition-colors cursor-pointer text-xl">✕</button>
         </div>
-        <div id="chat-messages" class="flex-1 p-4 h-80 overflow-y-auto flex flex-col gap-3 scroll-smooth bg-[#f8f8f8]">
+        
+        <div id="chat-messages" role="log" aria-live="polite" class="flex-1 p-4 h-80 overflow-y-auto flex flex-col gap-3 scroll-smooth bg-[#f8f8f8]">
             <div class="bg-white text-gray-800 text-sm p-4 rounded-tr-xl rounded-bl-xl rounded-br-xl max-w-[85%] self-start border border-gray-200 font-medium shadow-sm">
                 Olá! Sou o assistente virtual da André Insights. Estou preparado para tirar suas dúvidas sobre nossos serviços de gestão, a AF Oliveira ou a OLIVER WEAR Co. O que deseja saber?
             </div>
         </div>
+
         <div id="chat-suggestions" class="px-4 pb-3 flex gap-2 overflow-x-auto scroll-smooth snap-x bg-[#f8f8f8]" style="scrollbar-width: none;">
             <button class="suggestion-btn shrink-0 bg-white text-xs text-gray-700 font-semibold px-4 py-2 rounded-full border border-gray-300 hover:bg-[#111112] hover:text-white transition-colors shadow-sm">O que é a AF Oliveira?</button>
-            <button class="suggestion-btn shrink-0 bg-white text-xs text-gray-700 font-semibold px-4 py-2 rounded-full border border-gray-300 hover:bg-[#111112] hover:text-white transition-colors shadow-sm">Entrega OLIVER WEAR</button>
-            <button class="suggestion-btn shrink-0 bg-white text-xs text-gray-700 font-semibold px-4 py-2 rounded-full border border-gray-300 hover:bg-[#111112] hover:text-white transition-colors shadow-sm">Mentoria em Gestão</button>
+            <button class="suggestion-btn shrink-0 bg-white text-xs text-gray-700 font-semibold px-4 py-2 rounded-full border border-gray-300 hover:bg-[#111112] hover:text-white transition-colors shadow-sm">Entrega OLIVER WEAR Co.</button>
+            <button class="suggestion-btn shrink-0 bg-white text-xs text-gray-700 font-semibold px-4 py-2 rounded-full border border-gray-300 hover:bg-[#111112] hover:text-white transition-colors shadow-sm">Mentoria em Gestão Ágil</button>
+            <button class="suggestion-btn shrink-0 bg-white text-xs text-gray-700 font-semibold px-4 py-2 rounded-full border border-gray-300 hover:bg-[#111112] hover:text-white transition-colors shadow-sm">Filosofia Cerne Alto</button>
         </div>
-        <div class="border-t border-gray-200 bg-white">
+
+        <div class="border-t border-gray-200 bg-white relative">
             <div class="p-3 flex gap-2">
                 <input type="text" id="chat-input" placeholder="Digite sua pergunta..." autocomplete="off" class="flex-1 bg-[#f8f8f8] text-gray-900 text-sm font-medium border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#111112] focus:ring-1 focus:ring-[#111112] transition-all">
-                <button id="chat-send" class="bg-[#111112] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-black transition-colors shadow-md cursor-pointer flex items-center justify-center">
+                <button id="chat-send" aria-label="Enviar mensagem" class="bg-[#111112] text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-black transition-colors shadow-md cursor-pointer flex items-center justify-center relative">
                     <svg class="w-5 h-5 transform rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
                 </button>
             </div>
             <div class="px-3 pb-3">
-                <a href="https://wa.me/5521993333676" target="_blank" class="w-full bg-[#f4f4f4] text-gray-600 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] border border-gray-300 transition-colors py-2 rounded-lg text-xs font-semibold text-center shadow-sm flex items-center justify-center gap-2">
-                    Falar com um humano no WhatsApp
+                <a href="https://wa.me/5521993333676?text=Olá,%20estava%20falando%20com%20o%20assistente%20virtual%20e%20gostaria%20de%20atendimento%20humano." target="_blank" class="w-full bg-[#f4f4f4] text-gray-600 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] border border-gray-300 transition-colors py-2 rounded-lg text-xs font-semibold text-center block shadow-sm flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    Falar com um humano
                 </a>
             </div>
         </div>
@@ -167,7 +197,7 @@
             gsap.to(element, { y: 0, opacity: 1, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: element, start: "top 85%" } });
         });
 
-        // 3. NAVBAR NAVBAR E MENU
+        // 3. NAVBAR E MENU
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             const menuToggle = document.getElementById('menu-toggle');
@@ -209,36 +239,51 @@
         const chatMessages = document.getElementById('chat-messages');
 
         const faqDatabase = [
-            { keywords: ["quem", "holding", "sobre", "andre"], answer: "A André Insights é uma holding e consultoria liderada por André Oliveira. Focamos em Gestão Ágil, Business Intelligence e Automação." },
-            { keywords: ["fundador", "andre oliveira"], answer: "André Oliveira tem mais de 30 anos de experiência em gestão e IA. Hoje, une alfaiataria técnica com marketing digital de alta performance." },
-            { keywords: ["servicos", "consultoria", "oferecem"], answer: "Oferecemos consultoria executiva, reestruturação organizacional (Gestão Ágil), implementação de BI, automação e estratégias B2B." },
+            // Sobre a Holding / André Insights
+            { keywords: ["quem", "holding", "sobre", "andre"], answer: "A André Insights é uma holding estratégica e consultoria liderada por André Oliveira. Focamos em Gestão Ágil, Business Intelligence e Automação." },
+            { keywords: ["fundador", "andre oliveira"], answer: "André Oliveira tem mais de 30 anos de experiência em consultoria de gestão e IA. Hoje, une alfaiataria técnica com marketing digital de alta performance." },
+            { keywords: ["servicos", "consultoria", "oferecem"], answer: "Oferecemos consultoria executiva, mentoria, reestruturação organizacional (Gestão Ágil), implementação de BI, automação e estratégias B2B." },
             { keywords: ["agil", "scrum", "kanban"], answer: "Implementamos metodologias ágeis para acelerar a entrega de valor, otimizar recursos e melhorar a comunicação nas empresas." },
-            { keywords: ["ia", "inteligencia artificial", "automacao"], answer: "Usamos IA e automação para eliminar gargalos e transformar processos manuais em fluxos inteligentes." },
-            { keywords: ["bi", "dados", "business intelligence"], answer: "Criamos estruturas de BI e dashboards para decisões estratégicas baseadas em dados reais." },
-            { keywords: ["contato", "falar", "whatsapp", "telefone"], answer: "Pode falar direto conosco no WhatsApp: +55 21 99333-3676, ou clicando no botão verde no canto inferior da tela!" },
+            { keywords: ["ia", "inteligencia artificial", "automacao"], answer: "Usamos IA e automação para eliminar gargalos operacionais e transformar processos manuais em fluxos inteligentes." },
+            { keywords: ["bi", "dados", "business intelligence"], answer: "Criamos dashboards executivos e estruturas de BI para decisões estratégicas baseadas em dados reais." },
+            { keywords: ["contato", "falar", "whatsapp", "telefone"], answer: "Pode falar direto conosco no WhatsApp: +55 21 99333-3676, ou clicando no botão verde fixo no canto inferior da tela!" },
             { keywords: ["endereco", "localizacao", "rio"], answer: "Atuamos globalmente no formato online, com base intelectual de projetos no Rio de Janeiro." },
             { keywords: ["mentoria", "coaching"], answer: "Oferecemos Executive Coaching e Mentoria para desenvolvimento de liderança ágil e precisão operacional." },
-            { keywords: ["af oliveira", "af", "o que e af"], answer: "A AF Oliveira é nossa marca para negócios B2B focada em transmutar o 'Saber' estratégico em 'Poder Operacional'." },
+            
+            // Sobre AF Oliveira
+            { keywords: ["af oliveira", "af", "o que e af"], answer: "A AF Oliveira é nossa marca estratégica focada em negócios B2B de alto impacto. O lema é transmutar o 'Saber' estratégico em 'Poder Operacional'." },
             { keywords: ["alfaiataria", "b2b", "tecnica"], answer: "Alfaiataria técnica significa desenhar processos sob medida para corporações que precisam de reestruturação sustentável, sem fórmulas prontas." },
-            { keywords: ["marketing", "campanha"], answer: "Unimos a precisão da gestão corporativa com a criatividade de campanhas digitais de alta conversão." },
-            { keywords: ["orcamento", "proposta"], answer: "Para uma proposta B2B sob medida, o ideal é agendar uma reunião rápida. Chame no WhatsApp!" },
-            { keywords: ["cases", "projetos", "sinaf"], answer: "Atuamos com grandes players, desenvolvendo planos de reestruturação e mentoria executiva para o alto escalão." },
-            { keywords: ["tempo", "duracao"], answer: "Projetos variam conforme o escopo. Pode ser uma mentoria de 3 meses ou uma grande reestruturação de 12 meses." },
-            { keywords: ["resultado", "garantia"], answer: "Implementamos métricas claras (KPIs) para garantir que o retorno sobre investimento (ROI) seja rastreável e evidente." },
-            { keywords: ["oliver wear", "wear", "roupas", "vende"], answer: "A OLIVER WEAR Co. é nossa marca de moda Tech Streetwear, unindo conforto térmico, durabilidade e design urbano." },
-            { keywords: ["reserva", "ink", "producao"], answer: "Nossa parceira estratégica é a Reserva Ink. As peças da OLIVER WEAR contam com a qualidade e confiabilidade do grupo Reserva." },
-            { keywords: ["entrega", "frete", "logistica"], answer: "Temos entrega expressa para todo o Brasil pela Reserva Ink! O prazo é calculado no checkout pelo CEP." },
-            { keywords: ["cores", "estilo", "tech"], answer: "O Tech Streetwear usa tons escuros profundos e vibrantes (como neon) para um visual minimalista e marcante." }
+            { keywords: ["marketing", "campanha"], answer: "Unimos a precisão da gestão corporativa com a criatividade de campanhas digitais de alta conversão B2B." },
+            { keywords: ["orcamento af", "proposta af"], answer: "Para uma proposta B2B sob medida, o ideal é agendar uma reunião rápida. Chame no WhatsApp!" },
+            
+            // Sobre OLIVER WEAR Co.
+            { keywords: ["oliver wear", "wear", "roupas", "vende"], answer: "A OLIVER WEAR Co. é nossa marca de moda premium focada no conceito Tech Streetwear, unindo conforto térmico, durabilidade e design urbano moderno." },
+            { keywords: ["reserva", "ink", "producao"], answer: "Temos uma parceria estratégica com a Reserva Ink! Isso garante que todas as peças da OLIVER WEAR contam com a qualidade e confiabilidade de entrega do grupo Reserva." },
+            { keywords: ["entrega oliver", "frete oliver", "logistica"], answer: "Temos entrega expressa para todo o Brasil pela Reserva Ink! O prazo exato é calculado no checkout pelo seu CEP." },
+            
+            // Sobre Cerne Alto
+            { keywords: ["cerne alto", "cerne", "o que e cerne"], answer: "A Cerne Alto é nossa marca focada em Gestão e Liderança, sob a holding André Insights. Sua Visão, Nossa Estrutura." },
+            { keywords: ["filosofia", "lema cerne", "visao"], answer: "O lema da Cerne Alto é 'A Gestão e Liderança de Cerne Alto.' Isso reflete o compromisso em criar estruturas sólidas para a visão dos nossos líderes." },
+            { keywords: ["site cerne", "link cerne"], answer: "Você pode acessar o site oficial da Cerne Alto diretamente pelo card na nossa seção 'Nossas Marcas'!" },
+            { keywords: ["projeto cerne", "proposta cerne"], answer: "Os projetos da Cerne Alto são focados no desenvolvimento da estrutura operacional e do alto escalão de liderança. Fale no WhatsApp para uma proposta." }
         ];
 
+        // Lógica do Chat (UI e Botões)
         function toggleChat() {
-            chatbotWindow.classList.toggle('hidden');
-            setTimeout(() => {
-                chatbotWindow.classList.toggle('translate-y-4');
-                chatbotWindow.classList.toggle('opacity-0');
-                if(!chatbotWindow.classList.contains('hidden')) { chatbotWindow.classList.add('flex'); } 
-                else { chatbotWindow.classList.remove('flex'); }
-            }, 10);
+            if (chatbotWindow.classList.contains('hidden')) {
+                chatbotWindow.classList.remove('hidden');
+                setTimeout(() => {
+                    chatbotWindow.classList.remove('translate-y-4', 'opacity-0');
+                    chatbotWindow.classList.add('translate-y-0', 'opacity-100', 'flex');
+                }, 10);
+            } else {
+                chatbotWindow.classList.remove('translate-y-0', 'opacity-100');
+                chatbotWindow.classList.add('translate-y-4', 'opacity-0');
+                setTimeout(() => {
+                    chatbotWindow.classList.add('hidden');
+                    chatbotWindow.classList.remove('flex');
+                }, 300);
+            }
         }
         chatbotToggle.addEventListener('click', toggleChat);
         chatbotClose.addEventListener('click', toggleChat);
@@ -258,7 +303,7 @@
             for (let faq of faqDatabase) {
                 if (faq.keywords.some(kw => q.includes(kw))) { return faq.answer; }
             }
-            return "Interessante! Essa é uma pergunta muito específica. Para te dar a melhor resposta, peço que chame o André no botão de WhatsApp logo abaixo.";
+            return "Interessante! Essa é uma pergunta muito específica. Para te dar a melhor resposta, peço que chame o André no botão de Atendimento Humano logo abaixo.";
         }
 
         function handleSend() {
