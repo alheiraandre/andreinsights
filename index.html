@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>André Insights | Holding</title>
 
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
+   <link rel="icon" type="image/webp" href="AI.webp">
+   <link rel="apple-touch-icon" href="ai.webp">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -14,49 +14,49 @@
         body { font-family: 'Jost', sans-serif; background-color: #f8f8f8; overflow-x: hidden; }
         .reveal-text, .reveal-card { opacity: 0; transform: translateY(40px); }
         .hero-overlay { background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.6) 100%); }
-        #floating-menu { transform-origin: top right; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        #chat-messages::-webkit-scrollbar { width: 4px; }
-        #chat-messages::-webkit-scrollbar-thumb { background-color: #d1d5db; border-radius: 4px; }
+        
+        /* Estilos dos Modais */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: all 0.4s ease; z-index: 100;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content {
+            background: white; padding: 3rem; border-radius: 1.5rem;
+            max-width: 600px; width: 90%; position: relative;
+            transform: translateY(20px); transition: all 0.4s ease;
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; color: #000; }
     </style>
 </head>
 <body class="antialiased text-gray-900 relative">
 
     <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center transition-all duration-300" id="navbar">
-        <img src="./img/AI.webp" alt="André Insights Logo" class="h-16 object-contain drop-shadow-[0_2px_4px_rgba(255,255,255,0.5)] transition-all duration-300" id="nav-logo">
+        <img src="./img/AI.webp" alt="André Insights Logo" class="h-16 object-contain" id="nav-logo">
         <div class="relative">
             <button class="text-sm tracking-widest uppercase text-white font-medium bg-black/30 px-6 py-3 rounded-full backdrop-blur-sm cursor-pointer hover:bg-black/50 transition" id="menu-toggle">Menu</button>
             <div id="floating-menu" class="absolute top-14 right-0 w-64 bg-white/95 backdrop-blur-xl border border-gray-100 shadow-2xl rounded-2xl p-6 opacity-0 invisible scale-95 flex flex-col gap-4 z-50">
-                <a href="#" class="menu-link text-gray-800 text-lg tracking-wide hover:text-gray-400 transition-colors border-b border-gray-100 pb-2">Home</a>
-                <a href="#impacto" class="menu-link text-gray-800 text-lg tracking-wide hover:text-gray-400 transition-colors border-b border-gray-100 pb-2">O Impacto</a>
-                <a href="#marcas" class="menu-link text-gray-800 text-lg tracking-wide hover:text-gray-400 transition-colors border-b border-gray-100 pb-2">Marcas</a>
-                <a href="#sobre" class="menu-link text-gray-800 text-lg tracking-wide hover:text-gray-400 transition-colors border-b border-gray-100 pb-2">Sobre André</a>
-                <a href="https://wa.me/5521993333676" target="_blank" class="menu-link text-[#25D366] text-lg font-medium tracking-wide hover:text-[#1da851] transition-colors mt-2">WhatsApp</a>
+                <a href="#" class="menu-link text-gray-800 hover:text-gray-400 transition-colors border-b pb-2">Home</a>
+                <a href="#impacto" class="menu-link text-gray-800 hover:text-gray-400 transition-colors border-b pb-2">O Impacto</a>
+                <a href="#marcas" class="menu-link text-gray-800 hover:text-gray-400 transition-colors border-b pb-2">Marcas</a>
+                <a href="#sobre" class="menu-link text-gray-800 hover:text-gray-400 transition-colors border-b pb-2">Sobre André</a>
             </div>
         </div>
     </nav>
 
     <header class="relative w-full h-screen overflow-hidden flex items-center justify-center">
-        <img src="./img/hero.webp" alt="Visão Arquitetônica" class="absolute w-full h-full object-cover top-0 left-0" id="hero-img">
+        <img src="./img/hero.webp" alt="Visão" class="absolute w-full h-full object-cover top-0 left-0" id="hero-img">
         <div class="absolute inset-0 hero-overlay"></div>
         <div class="relative z-10 text-center text-white px-4">
-            <h1 class="text-5xl md:text-7xl font-light tracking-wide reveal-text leading-tight drop-shadow-lg">
+            <h1 class="text-5xl md:text-7xl font-light tracking-wide reveal-text leading-tight">
                 Percepções que transformam.<br>
                 <span class="font-medium">Conhecimentos que Perduram.</span>
             </h1>
-            <p class="mt-8 text-sm uppercase tracking-widest reveal-text drop-shadow-md">Role para explorar</p>
         </div>
     </header>
-
-    <section id="impacto" class="py-24 px-6 md:px-24 bg-white text-center flex flex-col items-center justify-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-light tracking-wide text-gray-900 reveal-text mb-6">
-                Onde o Conhecimento se Torna Impacto
-            </h2>
-            <p class="mt-8 text-lg md:text-xl text-gray-600 leading-relaxed reveal-text max-w-3xl mx-auto font-light italic">
-                “André Insights nasceu sob o lema de disseminar conhecimento através de uma newsletter e artigos no LinkedIn e tornou-se o pilar de uma rede colaborativa que hoje redefine a gestão.”
-            </p>
-        </div>
-    </section>
 
     <section id="marcas" class="py-24 px-6 md:px-24 bg-[#f8f8f8]">
         <div class="max-w-7xl mx-auto">
@@ -64,101 +64,89 @@
                 <h2 class="text-3xl md:text-4xl font-light text-gray-400 reveal-card">Nossas Marcas</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <a href="https://afoliveira.andreinsights.com/" target="_blank" class="group block reveal-card relative overflow-hidden bg-[#f4f4f4] rounded-xl flex flex-col items-center justify-center p-8 h-[360px] transition-all duration-700 hover:-translate-y-2 border border-gray-200 shadow-sm hover:shadow-xl">
-                    <img src="./img/afoliveira.webp" alt="Logo AF Oliveira" class="w-40 h-40 object-contain mb-4 transition-transform duration-700 group-hover:scale-110">
-                    <h3 class="text-xl tracking-widest uppercase text-gray-800">AF Oliveira</h3>
-                    <p class="text-gray-500 text-[10px] mt-3 text-center max-w-[220px] leading-relaxed uppercase tracking-wider">Nosso Gol é Transmutar o "Saber" em "Poder Operacional".</p>
-                </a>
-                <a href="https://cernealto.andreinsights.com/" target="_blank" class="group block reveal-card relative overflow-hidden bg-[#f4f4f4] rounded-xl flex flex-col items-center justify-center p-8 h-[360px] transition-all duration-700 hover:-translate-y-2 border border-gray-200 shadow-sm hover:shadow-xl delay-100">
-                    <img src="./img/cernelogo.webp" alt="Logo CERNE" class="w-40 h-40 object-contain mb-4 transition-transform duration-700 group-hover:scale-110">
-                    <h3 class="text-xl tracking-widest uppercase text-gray-800">CERNE</h3>
-                    <p class="text-gray-500 text-[10px] mt-3 text-center max-w-[220px] leading-relaxed uppercase tracking-wider">Estratégia, Cultura e Desenvolvimento Organizacional.</p>
-                </a>
-                <a href="https://oliverwearco.andreinsights.com/" target="_blank" class="group block reveal-card relative overflow-hidden bg-[#f4f4f4] rounded-xl flex flex-col items-center justify-center p-8 h-[360px] transition-all duration-700 hover:-translate-y-2 border border-gray-200 shadow-sm hover:shadow-xl delay-200">
-                    <img src="./img/oliverwearco.webp" alt="Logo OLIVER WEAR Co" class="w-40 h-40 object-contain mb-4 transition-transform duration-700 group-hover:scale-110">
-                    <h3 class="text-xl tracking-widest uppercase text-gray-800">OLIVER WEAR Co.</h3>
-                    <p class="text-gray-500 text-[10px] mt-3 text-center max-w-[200px] leading-relaxed uppercase tracking-wider">Entrega expressa em todo o Brasil pela Reserva Ink.</p>
-                </a>
+                
+                <div class="group reveal-card bg-[#f4f4f4] rounded-xl p-8 h-[360px] transition-all duration-700 hover:-translate-y-2 border border-gray-200 shadow-sm cursor-pointer" onclick="openModal('modal-af')">
+                    <img src="./img/afoliveira.webp" alt="Logo AF Oliveira" class="w-40 h-40 object-contain mx-auto mb-4 transition-transform duration-700 group-hover:scale-110">
+                    <h3 class="text-xl text-center tracking-widest uppercase text-gray-800">AF Oliveira</h3>
+                    <p class="text-gray-500 text-[10px] mt-3 text-center uppercase tracking-wider">Educação e Gestão Operacional</p>
+                </div>
+
+                <div class="group reveal-card bg-[#f4f4f4] rounded-xl p-8 h-[360px] transition-all duration-700 hover:-translate-y-2 border border-gray-200 shadow-sm cursor-pointer" onclick="openModal('modal-cerne')">
+                    <img src="./img/cernelogo.webp" alt="Logo CERNE" class="w-40 h-40 object-contain mx-auto mb-4 transition-transform duration-700 group-hover:scale-110">
+                    <h3 class="text-xl text-center tracking-widest uppercase text-gray-800">CERNE</h3>
+                    <p class="text-gray-500 text-[10px] mt-3 text-center uppercase tracking-wider">Estratégia e DNA Organizacional</p>
+                </div>
+
+                <div class="group reveal-card bg-[#f4f4f4] rounded-xl p-8 h-[360px] transition-all duration-700 hover:-translate-y-2 border border-gray-200 shadow-sm cursor-pointer" onclick="openModal('modal-oliver')">
+                    <img src="./img/oliverwearco.webp" alt="Logo OLIVER WEAR" class="w-40 h-40 object-contain mx-auto mb-4 transition-transform duration-700 group-hover:scale-110">
+                    <h3 class="text-xl text-center tracking-widest uppercase text-gray-800">OLIVER WEAR Co.</h3>
+                    <p class="text-gray-500 text-[10px] mt-3 text-center uppercase tracking-wider">Entrega expressa em todo o Brasil pela Reserva Ink.</p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="sobre" class="py-32 px-6 md:px-24 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="mb-16 text-center md:text-left">
-                <h2 class="text-3xl md:text-4xl font-light text-gray-900 reveal-text">Sobre André Oliveira</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-                <div class="md:col-span-5 relative overflow-hidden rounded-2xl shadow-lg h-[500px] reveal-card group">
-                    <img src="./img/eu.webp" alt="André Oliveira" class="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105 cursor-pointer">
-                </div>
-                <div class="md:col-span-7 flex flex-col gap-6 reveal-text">
-                    <p class="text-xl text-gray-800 font-light leading-relaxed italic border-l-4 border-gray-300 pl-6">
-                        "O mundo dos negócios em 2026 exige mais do que apenas percepções, exige precisão operacional. Após três décadas transformando organizações, evoluímos."
-                    </p>
-                    <p class="text-lg text-gray-600 font-light leading-relaxed">
-                        A <span class="font-medium text-gray-900">André Insights</span> passa por um rebranding estratégico para refletir nossa especialização em Gestão Ágil, Business Intelligence e Automação.
-                    </p>
-                    <p class="text-lg text-gray-600 font-light leading-relaxed">
-                        Muitos me conhecem pelos 30 anos de consultoria em gestão e IA. Mas a inovação mora na capacidade de aplicar o que sabemos em novos solos. Hoje, apresento meu novo desafio: a união da <b>Alfaiataria Técnica com o Marketing Digital</b>.
-                    </p>
-                    <p class="text-lg text-gray-600 font-light leading-relaxed">
-                        Porque acreditamos que a estrutura de um terno perfeito exige a mesma agilidade e inteligência de uma campanha digital de alta conversão.
-                    </p>
-                </div>
-            </div>
+    <div id="modal-af" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeAllModals()">&times;</span>
+            <h3 class="text-2xl font-medium mb-4 uppercase tracking-widest">AF Oliveira</h3>
+            <p class="text-gray-600 leading-relaxed mb-6">Nossa frente educacional focada em transmutar o conhecimento estratégico em poder operacional real para líderes e gestores.</p>
+            <a href="https://afoliveira.andreinsights.com/" target="_blank" class="inline-block bg-black text-white px-8 py-3 rounded-full text-sm uppercase tracking-widest">Visitar Site ↗</a>
         </div>
-    </section>
+    </div>
 
-    <footer class="bg-gray-100 text-gray-900 py-20 text-center">
-        <img src="./img/AI.webp" alt="André Insights Logo" class="h-20 object-contain mx-auto mb-6">
-        <p class="text-gray-400 text-sm tracking-widest">© 2026 André Insights. Todos os direitos reservados.</p>
-    </footer>
+    <div id="modal-cerne" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeAllModals()">&times;</span>
+            <h3 class="text-2xl font-medium mb-4 uppercase tracking-widest">CERNE</h3>
+            <p class="text-gray-600 leading-relaxed mb-6">Consultoria de alta precisão focada no núcleo das organizações: Estratégia, Cultura e Processos robustos.</p>
+            <a href="https://cernealto.andreinsights.com/" target="_blank" class="inline-block bg-black text-white px-8 py-3 rounded-full text-sm uppercase tracking-widest">Visitar Site ↗</a>
+        </div>
+    </div>
+
+    <div id="modal-oliver" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeAllModals()">&times;</span>
+            <h3 class="text-2xl font-medium mb-4 uppercase tracking-widest">OLIVER WEAR Co.</h3>
+            <p class="text-gray-600 leading-relaxed mb-6">A união da Alfaiataria Técnica com o Marketing Digital. Entrega expressa em todo o Brasil pela Reserva Ink, nossos parceiros na produção e logística.</p>
+            <a href="https://oliverwearco.andreinsights.com/" target="_blank" class="inline-block bg-black text-white px-8 py-3 rounded-full text-sm uppercase tracking-widest">Visitar Loja ↗</a>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
-        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
+        // Lógica de Modais - Funções globais para garantir funcionamento no onclick
+        window.openModal = function(id) {
+            const modal = document.getElementById(id);
+            if(modal) modal.classList.add('active');
+        }
 
+        window.closeAllModals = function() {
+            document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+        }
+
+        window.closeModal = function(e) {
+            if(e.target.classList.contains('modal-overlay')) closeAllModals();
+        }
+
+        // Animações GSAP
         gsap.registerPlugin(ScrollTrigger);
-        gsap.to(".reveal-text", { y: 0, opacity: 1, duration: 1.5, stagger: 0.3, ease: "power4.out", delay: 0.5 });
-        gsap.to("#hero-img", { yPercent: 30, ease: "none", scrollTrigger: { trigger: "header", start: "top top", end: "bottom top", scrub: true } });
-        gsap.utils.toArray(['.reveal-text', '.reveal-card']).forEach(element => {
+        gsap.to(".reveal-text", { y: 0, opacity: 1, duration: 1.5, stagger: 0.3, ease: "power4.out" });
+        gsap.utils.toArray(['.reveal-card']).forEach(element => {
             gsap.to(element, { y: 0, opacity: 1, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: element, start: "top 85%" } });
         });
 
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            const menuToggle = document.getElementById('menu-toggle');
-            const navLogo = document.getElementById('nav-logo');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-                nav.classList.remove('p-6');
-                nav.classList.add('p-4');
-                menuToggle.classList.replace('text-white', 'text-black');
-                menuToggle.classList.replace('bg-black/30', 'bg-gray-100');
-            } else {
-                nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-                nav.classList.replace('p-4', 'p-6');
-                menuToggle.classList.replace('text-black', 'text-white');
-                menuToggle.classList.replace('bg-gray-100', 'bg-black/30');
-            }
-        });
-
+        // Menu Toggle
         const menuToggle = document.getElementById('menu-toggle');
         const floatingMenu = document.getElementById('floating-menu');
-        function toggleMenu() {
+        menuToggle.addEventListener('click', () => {
             floatingMenu.classList.toggle('invisible');
             floatingMenu.classList.toggle('opacity-0');
             floatingMenu.classList.toggle('scale-95');
-        }
-        menuToggle.addEventListener('click', toggleMenu);
-        document.addEventListener('click', (e) => {
-            if (!menuToggle.contains(e.target) && !floatingMenu.contains(e.target) && !floatingMenu.classList.contains('invisible')) { toggleMenu(); }
         });
     </script>
 </body>
